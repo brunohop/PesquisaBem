@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+<h4> Dados da Empresa</h4>
+<p>
+  <strong>Razão social:</strong>
+  <%= @empresa.razaoSocial %>
+</p>
+
+<p>
+  <strong>CNPJ:</strong>
+  <%= @empresa.cnpj %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @empresa.cidade %>
+</p>
+
+<p>
+  <strong>UF:</strong>
+  <%= @empresa.uf %>
+</p>
+
+<p>
+  <strong>Quantidade de Imóveis:</strong>
+  <%= @empresa.imovels.size %>
+</p>
+<p>
+  <strong>Quantidade de Veículos:</strong>
+  <%= @empresa.veiculos.size %>
+</p>
+<p>
+  <strong>Quantidade de Sócios:</strong>
+  <%= @empresa.socios.size %>
+</p>
+
+
+<br/>
+
+<%= link_to 'Editar', edit_empresa_path(@empresa) %> |
+<%= link_to 'Editar', edit_empresa_path(@empresa) %> |
+<%= link_to 'Voltar', empresas_path %>
+<br/>
+<%= render "imovels/index" %>
+<%= link_to 'Inserir Novo Imóvel', new_imovel_path(id: @empresa), class: 'btn btn-default' %>
+<%= render "veiculos/index" %>
+<%= link_to 'Inserir Novo Veículo', new_veiculo_path(id: @empresa), class: 'btn btn-default' %>
+<%= render "socios/index" %>
+<%= link_to 'Inserir Novo Sócio', new_socio_path(id: @empresa), class: 'btn btn-default' %>
+<%= render "anexos/index" %>
+<%= link_to 'Inserir Novo Anexo', new_anexo_path(id: @empresa), class: 'btn btn-default' %>
+<br/>
+<br/>

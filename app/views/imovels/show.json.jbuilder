@@ -1,0 +1,1 @@
+json.partial! "imovels/imovel", imovel: @imovel

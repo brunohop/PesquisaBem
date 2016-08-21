@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  marca: MyString
+  modelo: MyString
+  ano: MyString
+  placa: MyString
+  cidade: MyString
+  uf: MyString
+  cri: MyString
+  observacoes: MyString
+
+two:
+  marca: MyString
+  modelo: MyString
+  ano: MyString
+  placa: MyString
+  cidade: MyString
+  uf: MyString
+  cri: MyString
+  observacoes: MyString

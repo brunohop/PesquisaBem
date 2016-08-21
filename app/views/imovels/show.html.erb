@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Logradouro:</strong>
+  <%= @imovel.logradouro %>
+</p>
+
+<p>
+  <strong>CEP:</strong>
+  <%= @imovel.cep %>
+</p>
+
+<p>
+  <strong>Bairro:</strong>
+  <%= @imovel.bairro %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @imovel.cidade %>
+</p>
+
+<p>
+  <strong>UF:</strong>
+  <%= @imovel.uf %>
+</p>
+
+<p>
+  <strong>Matrícula:</strong>
+  <%= @imovel.matricula %>
+</p>
+
+<p>
+  <strong>CRI:</strong>
+  <%= @imovel.cri %>
+</p>
+
+<p>
+  <strong>Observações:</strong>
+  <%= @imovel.observacoes %>
+</p>
+
+<%= link_to 'Edit', edit_imovel_path(@imovel) %> |
+<%= link_to 'Back', imovels_path %>

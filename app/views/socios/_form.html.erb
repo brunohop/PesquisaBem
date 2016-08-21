@@ -1,0 +1,16 @@
+<%= simple_form_for(@socio) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :nome %>
+    <%= f.input :cpf, label:'CPF' %>
+    <%= f.input :dataNascimento, label:'Data de nascimento' %>
+    <%= f.input :administrador %>
+  </div>
+
+  <%= f.hidden_field :empresa_id, value: @socio.empresa.id %>
+
+  <div class="form-actions">
+  <%= f.button :submit, 'Salvar' %>
+  </div>
+<% end %>

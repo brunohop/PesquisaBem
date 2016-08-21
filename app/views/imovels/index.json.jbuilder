@@ -1,0 +1,1 @@
+json.array! @imovels, partial: 'imovels/imovel', as: :imovel
