@@ -11,14 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818203245) do
+ActiveRecord::Schema.define(version: 20160821223209) do
 
   create_table "anexos", force: :cascade do |t|
-    t.binary   "arquivo"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.integer  "pesquisa_id"
     t.integer  "empresa_id"
+    t.string   "descricao"
+    t.string   "arquivo_file_name"
+    t.string   "arquivo_content_type"
+    t.integer  "arquivo_file_size"
+    t.datetime "arquivo_updated_at"
   end
 
   create_table "empresas", force: :cascade do |t|

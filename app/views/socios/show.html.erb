@@ -21,4 +21,10 @@
 </p>
 
 <%= link_to 'Editar', edit_socio_path(@socio) %> |
-<%= link_to 'Voltar', socios_path %>
+<%= link_to 'Voltar', :back %>
+
+<br/>
+<%= render "imovels/index" %>
+<%= link_to 'Inserir Novo Imóvel', new_imovel_path(empresa_id: @empresa, socio_id: @socio), class: 'btn btn-default' %>
+<%= render "veiculos/index" %>
+<%= link_to 'Inserir Novo Veículo', new_veiculo_path(empresa_id: @empresa, socio_id: @socio), class: 'btn btn-default' %>

@@ -5,7 +5,7 @@
     <%= f.input :razaoSocial, label:'Razão Social' %>
     <%= f.input :cnpj, label:'CNPJ' %>
     <%= f.input :cidade, label:'Cidade' %>
-    <%= f.input :uf, label:'UF' %>
+    <%= f.input :uf,:collection => Empresa.estados,:label => "UF:" ,:include_blank => false %>
   </div>
 
 <div class="form-actions">

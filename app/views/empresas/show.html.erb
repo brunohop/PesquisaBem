@@ -37,16 +37,15 @@
 <br/>
 
 <%= link_to 'Editar', edit_empresa_path(@empresa) %> |
-<%= link_to 'Editar', edit_empresa_path(@empresa) %> |
 <%= link_to 'Voltar', empresas_path %>
 <br/>
 <%= render "imovels/index" %>
-<%= link_to 'Inserir Novo Imóvel', new_imovel_path(id: @empresa), class: 'btn btn-default' %>
+<%= link_to 'Inserir Novo Imóvel', new_imovel_path(empresa_id: @empresa), class: 'btn btn-default' %>
 <%= render "veiculos/index" %>
-<%= link_to 'Inserir Novo Veículo', new_veiculo_path(id: @empresa), class: 'btn btn-default' %>
+<%= link_to 'Inserir Novo Veículo', new_veiculo_path(empresa_id: @empresa), class: 'btn btn-default' %>
 <%= render "socios/index" %>
-<%= link_to 'Inserir Novo Sócio', new_socio_path(id: @empresa), class: 'btn btn-default' %>
+<%= link_to 'Inserir Novo Sócio', new_socio_path(empresa_id: @empresa), class: 'btn btn-default' %>
 <%= render "anexos/index" %>
-<%= link_to 'Inserir Novo Anexo', new_anexo_path(id: @empresa), class: 'btn btn-default' %>
+<%= link_to 'Inserir Novo Anexo', new_anexo_path(empresa_id: @empresa), class: 'btn btn-default' %>
 <br/>
 <br/>

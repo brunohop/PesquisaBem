@@ -1,0 +1,33 @@
+rails generate scaffold Pesquisa descricaoPesquisa:string data:datetime
+
+rails generate scaffold Socio nome:string cpf:string dataNascimento:date administrador:string
+
+rails generate scaffold Empresa cnpj:string  cidade:string  uf:string  razaoSocial:string
+
+rails generate scaffold Veiculo marca:string  modelo:string  ano:string  placa:string  cidade:string  uf:string  cri:string  observacoes:string
+
+rails generate scaffold Imovel  logradouro:string  cep:string  bairro:string  cidade:string  uf:string  matricula:string  cri:string  observacoes:string
+
+rails generate scaffold Anexo descricao:string
+
+
+//relacionamentos
+rails generate migration addColumnEmpresaIdToImovel empresa_id:integer
+
+rails generate migration addColumnSocioIdToImovel socio_id:integer
+
+rails generate migration addColumnEmpresaIdToVeiculo empresa_id:integer
+
+rails generate migration addColumnSocioIdToVeiculo socio_id:integer
+
+rails generate migration addColumnPesquisaIdToSocio pesquisa_id:integer
+
+rails generate migration addColumnPesquisaIdToEmpresa pesquisa_id:integer
+
+rails generate migration addColumnPesquisaIdToAnexo pesquisa_id:integer
+
+rails generate migration RemoveArquivoFromAnexo arquivo:binary
+
+rails generate migration addColumnDescricaoToAnexo descricao:string
+
+rails generate paperclip Anexo arquivo

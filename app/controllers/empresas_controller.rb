@@ -68,6 +68,35 @@ class EmpresasController < ApplicationController
     end
   end
 
+  # GET /empresas/initBusca
+  def initBusca
+    @empresa = Empresa.new
+    end
+
+  # GET /empresas/busca
+  def busca
+    Rails.logger = Logger.new(STDOUT)
+
+    empresa = Empresa.new(empresa_params)
+    @empresas = Empresa.all
+    if (empresa.cnpj != '' && empresa.razaoSocial!= '')
+    @empresas =   Empresa.where("cnpj LIKE '%#{empresa.cnpj}%' AND razaosocial LIKE '%#{empresa.razaoSocial}%'")
+    else
+      if (empresa.cnpj != '')
+        logger.debug "consulta #{Empresa.where("cnpj LIKE '%#{empresa.cnpj}%'")}"
+        @empresas =   Empresa.where("cnpj LIKE '%#{empresa.cnpj}%'")
+      end
+      if (empresa.razaoSocial != '')
+        @empresas = Empresa.where("razaosocial LIKE '%#{empresa.razaoSocial}%'")
+      end
+    end
+      if (empresa.cnpj == nil && empresa.razaoSocial== nil)
+        @empresas = Empresa.all
+      end
+    render "index"
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_empresa

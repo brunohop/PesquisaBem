@@ -14,9 +14,14 @@ class ImovelsController < ApplicationController
 
   # GET /imovels/new
   def new
-    empresa  = Empresa.find(params[:id])
+    empresa  = Empresa.find(params[:empresa_id])
     @imovel = Imovel.new
     @imovel.empresa= empresa
+
+    if (params[:socio_id] != nil)
+      socio  = Socio.find(params[:socio_id])
+      @imovel.socio= socio
+    end
   end
 
   # GET /imovels/1/edit
@@ -44,7 +49,7 @@ class ImovelsController < ApplicationController
   def update
     respond_to do |format|
       if @imovel.update(imovel_params)
-        format.html { redirect_to @imovel, notice: 'Imóvel foi atualizado com sucesso.' }
+        format.html { redirect_to controller:"empresas" ,action: "show", id: @imovel.empresa.id ,  notice: 'Imóvel foi atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @imovel }
       else
         format.html { render :edit }

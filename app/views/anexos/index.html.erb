@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Arquivo</th>
+      <th>Descrição</th>
       <th colspan="3"> Ações</th>
     </tr>
   </thead>
@@ -13,7 +14,8 @@
   <tbody>
     <% @anexos.each do |anexo| %>
       <tr>
-        <td><%= anexo.arquivo %></td>
+        <td><%= link_to anexo.arquivo_file_name, anexo.arquivo.url %></td>
+        <td><%= anexo.descricao %></td>
         <td><%= link_to 'Exibir', anexo %></td>
         <td><%= link_to 'Editar', edit_anexo_path(anexo) %></td>
         <td><%= link_to 'Deletar', anexo, method: :delete, data: { confirm: 'Você tem certeza' } %></td>

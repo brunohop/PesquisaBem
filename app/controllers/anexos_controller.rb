@@ -14,7 +14,7 @@ class AnexosController < ApplicationController
 
   # GET /anexos/new
   def new
-    empresa  = Empresa.find(params[:id])
+    empresa  = Empresa.find(params[:empresa_id])
     @anexo = Anexo.new
     @anexo.empresa= empresa
   end
@@ -71,6 +71,6 @@ class AnexosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def anexo_params
-      params.require(:anexo).permit(:arquivo, :file)
+      params.require(:anexo).permit(:arquivo, :file, :descricao, :empresa_id)
     end
 end

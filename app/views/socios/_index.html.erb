@@ -2,7 +2,7 @@
 
 <h4>Sócios da empresa</h4>
 
-<table class="table-bordered table-hover table-condensed">
+<table class="table table-bordered table-hover table-condensed">
   <thead>
     <tr>
       <th>Nome</th>
@@ -20,7 +20,7 @@
         <td><%= socio.cpf %></td>
         <td><%= socio.dataNascimento %></td>
         <td><%= socio.administrador %></td>
-        <td><%= link_to 'Exibir', socio %></td>
+        <td><%= link_to 'Exibir', "/socios/#{socio.id}?empresa_id=#{@empresa.id}"%></td>
         <td><%= link_to 'Editar', edit_socio_path(socio) %></td>
         <td><%= link_to 'Deletar', socio, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>

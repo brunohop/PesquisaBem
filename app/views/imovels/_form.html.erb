@@ -6,14 +6,16 @@
     <%= f.input :cep, label:'CEP' %>
     <%= f.input :bairro %>
     <%= f.input :cidade %>
-    <%= f.input :uf, label:'UF' %>
+    <%= f.input :uf,:collection => Empresa.estados,:label => "UF:" ,:include_blank => false %>
     <%= f.input :matricula, label:'Matrícula' %>
     <%= f.input :cri, label:'CRI' %>
     <%= f.input :observacoes, label:'Observações' %>
 
   </div>
 <%= f.hidden_field :empresa_id, value: @imovel.empresa.id %>
-
+<%if @imovel.socio %>
+  <%= f.hidden_field :socio_id, value: @imovel.socio.id %>
+<% end %>
   <div class="form-actions">
   <%= f.button :submit, 'Salvar' %>
   </div>

@@ -2,8 +2,8 @@
 
 <p>
   <strong>Arquivo:</strong>
-  <%= @anexo.arquivo %>
+  <%=link_to @anexo.arquivo_file_name, @anexo.arquivo.url %>
 </p>
 
 <%= link_to 'Editar', edit_anexo_path(@anexo) %> |
-<%= link_to 'Voltar', anexos_path %>
+<%= link_to 'Voltar', :back %>

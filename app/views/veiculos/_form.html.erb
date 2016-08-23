@@ -7,13 +7,15 @@
     <%= f.input :ano %>
     <%= f.input :placa %>
     <%= f.input :cidade %>
-    <%= f.input :uf, label:'UF' %>
+    <%= f.input :uf,:collection => Empresa.estados,:label => "UF:" ,:include_blank => false %>
     <%= f.input :cri, label:'CRI' %>
     <%= f.input :observacoes, label:'Observações' %>
   </div>
 
   <%= f.hidden_field :empresa_id, value: @veiculo.empresa.id %>
-
+  <%if @veiculo.socio %>
+    <%= f.hidden_field :socio_id, value: @veiculo.socio.id %>
+  <% end %>
   <div class="form-actions">
   <%= f.button :submit, 'Salvar' %>
   </div>

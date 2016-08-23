@@ -14,9 +14,14 @@ class VeiculosController < ApplicationController
 
   # GET /veiculos/new
   def new
-    empresa  = Empresa.find(params[:id])
+    empresa  = Empresa.find(params[:empresa_id])
     @veiculo = Veiculo.new
     @veiculo.empresa= empresa
+
+    if (params[:socio_id] != nil)
+      socio  = Socio.find(params[:socio_id])
+      @veiculo.socio= socio
+    end
   end
 
   # GET /veiculos/1/edit
@@ -30,7 +35,7 @@ class VeiculosController < ApplicationController
 
     respond_to do |format|
       if @veiculo.save
-        format.html { redirect_to @veiculo, notice: 'Veículo foi criado com sucesso.' }
+        format.html { redirect_to controller:"empresas" ,action: "show", id: @veiculo.empresa.id ,  notice: 'Veículo foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @veiculo }
       else
         format.html { render :new }
@@ -71,6 +76,6 @@ class VeiculosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def veiculo_params
-      params.require(:veiculo).permit(:marca, :modelo, :ano, :placa, :cidade, :uf, :cri, :observacoes, :empresa_id)
+      params.require(:veiculo).permit(:marca, :modelo, :ano, :placa, :cidade, :uf, :cri, :observacoes, :empresa_id, :socio_id)
     end
 end
