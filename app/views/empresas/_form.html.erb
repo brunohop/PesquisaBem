@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :razaoSocial, label:'Razão Social' %>
-    <%= f.input :cnpj, label:'CNPJ' %>
+    <%= f.input :cnpj, label:'CNPJ',:input_html => {:maxlength => 14, :size => 14} %>
     <%= f.input :cidade, label:'Cidade' %>
     <%= f.input :uf,:collection => Empresa.estados,:label => "UF:" ,:include_blank => false %>
   </div>

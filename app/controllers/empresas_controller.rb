@@ -73,7 +73,7 @@ class EmpresasController < ApplicationController
     @empresa = Empresa.new
     end
 
-  # GET /empresas/busca
+  # GET /empresas/buscarEmpresa
   def busca
     Rails.logger = Logger.new(STDOUT)
 

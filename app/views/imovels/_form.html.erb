@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :logradouro %>
-    <%= f.input :cep, label:'CEP' %>
+    <%= f.input :cep, label:'CEP' ,:input_html => {:maxlength => 8, :size => 8}%>
     <%= f.input :bairro %>
     <%= f.input :cidade %>
     <%= f.input :uf,:collection => Empresa.estados,:label => "UF:" ,:include_blank => false %>

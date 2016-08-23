@@ -1,9 +1,8 @@
-<%= simple_form_for((@empresa), :url => "buscarEmpresa", :method => :get ) do |f|%>
+<%= simple_form_for((@socio), :url => "buscarCpf", :method => :get ) do |f|%>
   <%= f.error_notification %>
 
   <div class="form-inputs col-xs-4">
-    <%= f.input :razaoSocial, label:'Razão Social' %>
-    <%= f.input :cnpj, label:'CNPJ' %>
+    <%= f.input :cpf, label:'CPF' %>
   </div>
 <br/>
 <br/>

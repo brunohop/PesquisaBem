@@ -11,8 +11,12 @@ Rails.application.routes.draw do
 
   root to: 'visitors#index'
 
-  match 'iniciaBusca', controller: 'empresas', action: 'initBusca', via: 'get'
+  match 'iniciaBuscaEmpresa', controller: 'empresas', action: 'initBusca', via: 'get'
 
-  match 'buscar', controller: 'empresas', action: 'busca', via: 'get'
+  match 'buscarEmpresa', controller: 'empresas', action: 'busca', via: 'get'
+
+  match 'iniciaBuscaCpf', controller: 'socios', action: 'initBusca', via: 'get'
+
+  match 'buscarCpf', controller: 'socios', action: 'busca', via: 'get'
 
 end

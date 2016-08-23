@@ -17,7 +17,9 @@ class SociosController < ApplicationController
 
   # GET /socios/new
   def new
-    empresa  = Empresa.find(params[:empresa_id])
+    if (params[:empresa_id] != nil)
+      empresa  = Empresa.find(params[:empresa_id])
+    end
     @socio = Socio.new
     @socio.empresa= empresa
   end
@@ -64,6 +66,24 @@ class SociosController < ApplicationController
       format.html { redirect_to socios_url, notice: 'Sócio foi deletado com sucesso.' }
       format.json { head :no_content }
     end
+  end
+
+  # GET /socios/initBusca
+  def initBusca
+    @socio = Socio.new
+    end
+
+  # GET /socios/buscarCpf
+  def busca
+    Rails.logger = Logger.new(STDOUT)
+
+    socio = Socio.new(socio_params)
+    @socios = Socio.all
+    if (socio.cpf != '')
+      @socios = Socio.where("cpf LIKE '%#{socio.cpf}%'")
+    end
+    render "index"
+
   end
 
   private
