@@ -4,7 +4,7 @@ class EmpresasController < ApplicationController
   # GET /empresas
   # GET /empresas.json
   def index
-    @empresas = Empresa.all
+    @empresas = Empresa.all.page params['page']
     @empresa = Empresa.new
   end
 
@@ -20,7 +20,7 @@ class EmpresasController < ApplicationController
   # GET /empresas/new
   def new
     @empresa = Empresa.new
-    @empresas = Empresa.all
+    @empresas = Empresa.all.page params['page']
   end
 
   # GET /empresas/1/edit
@@ -78,7 +78,7 @@ class EmpresasController < ApplicationController
     Rails.logger = Logger.new(STDOUT)
 
     empresa = Empresa.new(empresa_params)
-    @empresas = Empresa.all
+    @empresas = Empresa.all.page params['page']
     if (empresa.cnpj != '' && empresa.razaoSocial!= '')
     @empresas =   Empresa.where("cnpj LIKE '%#{empresa.cnpj}%' AND razaosocial LIKE '%#{empresa.razaoSocial}%'")
     else
@@ -91,7 +91,7 @@ class EmpresasController < ApplicationController
       end
     end
       if (empresa.cnpj == nil && empresa.razaoSocial== nil)
-        @empresas = Empresa.all
+        @empresas = Empresa.all.page params['page']
       end
     render "index"
 

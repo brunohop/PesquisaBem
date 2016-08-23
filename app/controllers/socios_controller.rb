@@ -4,7 +4,7 @@ class SociosController < ApplicationController
   # GET /socios
   # GET /socios.json
   def index
-    @socios = Socio.all
+    @socios = Socio.all.page params['page']
   end
 
   # GET /socios/1
@@ -78,7 +78,7 @@ class SociosController < ApplicationController
     Rails.logger = Logger.new(STDOUT)
 
     socio = Socio.new(socio_params)
-    @socios = Socio.all
+    @socios = Socio.all.page params['page']
     if (socio.cpf != '')
       @socios = Socio.where("cpf LIKE '%#{socio.cpf}%'")
     end
