@@ -1,10 +1,10 @@
 <div id="wrapper">
-
+<% if user_signed_in? %>
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-                <a href="#">
+                <a href="users/edit">
                     Perfil
                 </a>
             </li>
@@ -18,21 +18,12 @@
                 <a href="/iniciaBuscaCpf">Pesquisar CPF</a>
             </li>
             <li>
-                <a href="#">Sair</a>
-            </li>
-            <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#">Services</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
+              <a href="/users/sign_out">Sair</a>
             </li>
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->
-
+<% end %>
     <!-- Page Content -->
     <div id="page-content-wrapper">
         <div class="container-fluid">
@@ -41,8 +32,9 @@
                     <h1>Pesquisa Bem</h1>
                     <p>Sistema desenvolvido para pesquisar bens de pessoas físicas e jurídicas.</p>
                     <p>Pessoas físicas só podem ser cadastradas se estiverem ligadas a pessoas jurídicas</p>
+                    <% if user_signed_in? %>
                     <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Esconder o Menu</a>
-
+                    <% end %>
                 </div>
             </div>
         </div>

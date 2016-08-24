@@ -31,3 +31,6 @@ rails generate migration RemoveArquivoFromAnexo arquivo:binary
 rails generate migration addColumnDescricaoToAnexo descricao:string
 
 rails generate paperclip Anexo arquivo
+
+#cria usuário
+User.new({:email => "brunohop@gmail.com", :roles => ["admin"], :password => "bruno1987", :password_confirmation => "bruno1987" }).save(false)
