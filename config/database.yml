@@ -25,7 +25,23 @@
 #   database: db/production.sqlite3
 
 #postgresql for heroku
- default: &default
-   adapter: postgresql
-   encoding: unicode
-   pool: 5
+development:
+  adapter: postgresql
+  database: pesquisabem_development
+  pool: 5
+  timeout: 5000
+  username: pesquisaBem
+  password: 123456
+  host: localhost
+
+test:
+  adapter: postgresql
+  database: pesquisabem_test
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  database: pesquisabem_production
+  pool: 5
+  timeout: 5000
