@@ -22,6 +22,7 @@ gem 'high_voltage'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'better_errors'
+gem 'puma'
 group :development do
   gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'rails_layout'
