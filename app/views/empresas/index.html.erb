@@ -27,8 +27,10 @@
     <% end %>
   </tbody>
 </table>
+<%if @empresas.size > 0 %>
 <%= paginate @empresas %>
+<% end %>
 <br>
-<%if params[:commit] == '' %>
+<%if !params[:commit] %>
 <%= link_to 'Nova Empresa', new_empresa_path, class: 'btn btn-default' %>
 <% end %>

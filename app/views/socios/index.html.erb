@@ -29,8 +29,9 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate @socios %>
-
+<%if @socios.size > 0 %>
+  <%= paginate @socios %>
+<% end %>
 <br>
 <%if params[:commit] == '' %>
 <%= link_to 'Novo Sócio', new_socio_path %>

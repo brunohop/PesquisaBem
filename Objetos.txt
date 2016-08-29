@@ -34,3 +34,6 @@ rails generate paperclip Anexo arquivo
 
 #cria usuário
 User.new({:email => "brunohop@gmail.com", :roles => ["admin"], :password => "bruno1987", :password_confirmation => "bruno1987" }).save(false)
+
+# é necessário gerar manualmente as tabelas no heroku
+heroku rake db:schema:load
