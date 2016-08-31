@@ -35,8 +35,18 @@ class ImovelsController < ApplicationController
 
     respond_to do |format|
       if @imovel.save
-        format.html { redirect_to @imovel, notice: 'Imóvel foi criado com sucesso.' }
-        format.json { render :show, status: :created, location: @imovel }
+        empresa  = Empresa.find(@imovel.empresa.id)
+        @empresa = empresa
+
+        if(@imovel.socio ==nil)
+          format.html { redirect_to @empresa, notice: 'Imóvel foi criado com sucesso.' }
+          format.json { render :show, status: :created, location: @imovel }
+        else
+          socio  = Socio.find(@imovel.socio.id)
+          @socio = socio
+          format.html { redirect_to @socio, notice: 'Imóvel foi criado com sucesso.' }
+          format.json { render :show, status: :created, location: @imovel }
+        end
       else
         format.html { render :new }
         format.json { render json: @imovel.errors, status: :unprocessable_entity }

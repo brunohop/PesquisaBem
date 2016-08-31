@@ -1,8 +1,8 @@
 class Empresa < ActiveRecord::Base
-  has_many :imovels
-  has_many :veiculos
-  has_many :socios
-  has_many :anexos
+  has_many :imovels, :dependent => :delete_all
+  has_many :veiculos, :dependent => :delete_all
+  has_many :socios, :dependent => :delete_all
+  has_many :anexos, :dependent => :delete_all
 
   def self.estados
       ['AC','AL','AP','AM','BA','CE','DF','ES','GO',

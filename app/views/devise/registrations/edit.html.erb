@@ -10,7 +10,7 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
-    <%= f.input :password, autocomplete: "off", hint: "deixe em branco se você não quer alterá-lo.", required: false %>
+    <%= f.input :password, autocomplete: "off", hint: "Deixe em branco se você não quer alterá-lo.", required: false %>
     <%= f.input :password_confirmation, required: false %>
     <%= f.input :current_password, hint: "Você precisa inserir sua senha para confimar as mudanças.", required: true %>
   </div>

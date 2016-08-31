@@ -10,7 +10,7 @@ class SociosController < ApplicationController
   # GET /socios/1
   # GET /socios/1.json
   def show
-    @empresa  = Empresa.find(params[:empresa_id])
+    @empresa  = Empresa.find(@socio.empresa.id)
     @imovels= @socio.imovels
     @veiculos= @socio.veiculos
   end
@@ -35,7 +35,9 @@ class SociosController < ApplicationController
 
     respond_to do |format|
       if @socio.save
-        format.html { redirect_to controller:"empresas" ,action: "show", id: @socio.empresa.id ,  notice: 'Sócio foi criado com sucesso.' }
+        empresa  = Empresa.find(@socio.empresa.id)
+        @empresa = empresa
+        format.html { redirect_to @empresa, notice: 'Sócio foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @socio }
       else
         format.html { render :new }

@@ -30,8 +30,11 @@ class AnexosController < ApplicationController
 
     respond_to do |format|
       if @anexo.save
-        format.html { redirect_to @anexo, notice: 'Anexo was successfully created.' }
+        empresa  = Empresa.find(@anexo.empresa.id)
+        @empresa = empresa
+        format.html { redirect_to @empresa, notice: 'Anexo foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @anexo }
+
       else
         format.html { render :new }
         format.json { render json: @anexo.errors, status: :unprocessable_entity }

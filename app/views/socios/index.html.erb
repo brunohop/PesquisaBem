@@ -21,7 +21,11 @@
         <td><%= socio.cpf %></td>
         <td><%= socio.dataNascimento %></td>
         <td><%= socio.administrador %></td>
+        <%if socio.empresa %>
         <td><%= socio.empresa.razaoSocial %></td>
+        <%else %>
+        <td>Não informado</td>
+        <% end %>
         <td><%= link_to 'Exibir', socio %></td>
         <td><%= link_to 'Editar', edit_socio_path(socio) %></td>
         <td><%= link_to 'Deletar', socio, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>

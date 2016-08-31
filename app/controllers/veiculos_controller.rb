@@ -35,8 +35,17 @@ class VeiculosController < ApplicationController
 
     respond_to do |format|
       if @veiculo.save
-        format.html { redirect_to controller:"empresas" ,action: "show", id: @veiculo.empresa.id ,  notice: 'Veículo foi criado com sucesso.' }
-        format.json { render :show, status: :created, location: @veiculo }
+        empresa  = Empresa.find(@veiculo.empresa.id)
+        @empresa = empresa
+        if(@veiculo.socio ==nil)
+          format.html { redirect_to @empresa, notice: 'Veículo foi criado com sucesso.' }
+          format.json { render :show, status: :created, location: @veiculo }
+        else
+          socio  = Socio.find(@veiculo.socio.id)
+          @socio = socio
+          format.html { redirect_to @socio, notice: 'Veículo foi criado com sucesso.' }
+          format.json { render :show, status: :created, location: @veiculo }
+        end
       else
         format.html { render :new }
         format.json { render json: @veiculo.errors, status: :unprocessable_entity }
